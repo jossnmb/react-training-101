@@ -1,4 +1,3 @@
-// import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 //this successfully runs on button press, but I have no idea how to return the dogUrl back to PurchasePage
