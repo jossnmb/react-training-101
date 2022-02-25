@@ -59,9 +59,11 @@ import axios from 'axios';
 //   }
 // }
 
-export async function DogLoader(retryCnt, max) {
+//this successfully runs on button press
+async function DogLoader(retryCnt, max) {
   if (retryCnt >= max) throw new Error(`Failed retrying ${retryCnt} times`);
-  const callData = await axios
+  let dogUrl;
+  await axios
     .get('https://random.dog/woof')
     // if resolved
     .then((res) => {
@@ -73,9 +75,15 @@ export async function DogLoader(retryCnt, max) {
       } else {
         console.log('loaded image success!');
       }
-      return 'https://random.dog/' + res.data;
+      dogUrl = 'https://random.dog/' + res.data;
     })
     .catch((e) => {
       console.log(e);
+    })
+    .then(() => {
+      console.log(dogUrl);
+      return dogUrl;
     });
 }
+
+export { DogLoader };

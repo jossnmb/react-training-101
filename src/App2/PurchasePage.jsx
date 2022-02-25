@@ -5,7 +5,7 @@ import { DogLoader } from './loader';
 
 export default function PurchasePage() {
   let navigate = useNavigate();
-  let loader = async (retryCnt, max) => await DogLoader(retryCnt, max);
+  // let loader = async (retryCnt, max) => await DogLoader(retryCnt, max);
 
   const [dogImg, setDogImg] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -20,8 +20,9 @@ export default function PurchasePage() {
     <div>
       <button
         onClick={() => {
-          let doggy = loader(0, 3);
-          console.log(doggy);
+          // let doggy = loader(0, 3);
+          DogLoader(0, 3);
+
           //trigger loader until setDogImg is returned
         }}
       >
