@@ -59,25 +59,23 @@ import axios from 'axios';
 //   }
 // }
 
-export default async function DogLoader(retryCnt, max) {
-  try {
-    const data = await axios.get('https://random.dog/woof');
-    if (!data.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+export async function DogLoader(retryCnt, max) {
+  if (retryCnt >= max) throw new Error(`Failed retrying ${retryCnt} times`);
+  const callData = await axios
+    .get('https://random.dog/woof')
     // if resolved
-    data.then((res) => {
+    .then((res) => {
       // no mp4s allowed as img
-      if (res.data.includes('m')) {
+      if (res.data.includes('mp4')) {
         console.log('reloading image!');
         retryCnt++;
         DogLoader(retryCnt);
       } else {
         console.log('loaded image success!');
-        return 'https://random.dog/' + res.data;
       }
+      return 'https://random.dog/' + res.data;
+    })
+    .catch((e) => {
+      console.log(e);
     });
-  } catch (e) {
-    console.log(e);
-  }
 }
