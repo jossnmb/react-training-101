@@ -19,25 +19,8 @@ export default function PurchasePage() {
     <div>
       <button
         onClick={async () => {
-          let dogImage;
-          let doggy = await DogLoader(0, 3).then(
-            (res) => {
-              //if resolved
-              if (!res.data.includes('m')) {
-                console.log('loaded image success!');
-                dogImage = 'https://random.dog/' + res.data;
-              } else {
-                console.log('reloading image!');
-                retryCnt++;
-                DogLoader(retryCnt);
-              }
-            },
-            () => {
-              //if rejected
-              console.log('Garbage API call!');
-            }
-          );
-          setDogImg(dogImage);
+          let doggy = await DogLoader(0, 3);
+          // setDogImg(dogImage);
           console.log(doggy);
           // console.log(setDogImg(DogLoader(0, 3)));
           //trigger loader until setDogImg is returned

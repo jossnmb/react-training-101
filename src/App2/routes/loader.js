@@ -54,7 +54,6 @@ import axios from 'axios';
 //         console.log('Garbage API call!');
 //       }
 //     );
-//     // return data.then(res);
 //   } catch (e) {
 //     console.log(e);
 //   }
@@ -66,8 +65,19 @@ export default async function DogLoader(retryCnt, max) {
     if (!data.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
+    // if resolved
+    data.then((res) => {
+      // no mp4s allowed as img
+      if (res.data.includes('m')) {
+        console.log('reloading image!');
+        retryCnt++;
+        DogLoader(retryCnt);
+      } else {
+        console.log('loaded image success!');
+        return 'https://random.dog/' + res.data;
+      }
+    });
   } catch (e) {
     console.log(e);
   }
 }
-
