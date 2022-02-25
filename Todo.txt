@@ -1,0 +1,4 @@
+implement loader on click of purchase button
+call external function that counts down
+use async and await to keep spinning loader until timer finishes
+after which confirmedPurchase loads
