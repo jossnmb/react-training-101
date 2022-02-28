@@ -1,7 +1,7 @@
 import { Component, useEffect, useState } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { DogLoader } from './loader';
+import Loader from './loader';
 
 export default function PurchasePage() {
   let navigate = useNavigate();
@@ -10,31 +10,22 @@ export default function PurchasePage() {
   const [dogImg, setDogImg] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   dogLoader(0, 3);
-  // }, []);
-
-  let clickHandler = () => {};
+  const setImgSrc = (imgUrl) => {
+    setDogImg(imgUrl);
+  };
 
   return (
     <div>
-      <button
-        onClick={() => {
-          // let doggy = loader(0, 3);
-          DogLoader(0, 3);
-
-          //trigger loader until setDogImg is returned
-        }}
-      >
-        Purchase Item
-      </button>
-
-      {loading ? (
-        <img src={dogImg} width="150" height="100" />
-      ) : (
-        <h3>Loading</h3>
-      )}
-      <Outlet />
+      <Loader
+        dogImg={dogImg}
+        onImgLoad={setImgSrc}
+        loading={loading}
+        setLoading={setLoading}
+      />
+      {/* {loading ? ( */}
+      <img src={dogImg} width="150" height="100" />
+      {/*  ) : ( // <h3>Loading</h3>
+      )} */}
     </div>
   );
 }
