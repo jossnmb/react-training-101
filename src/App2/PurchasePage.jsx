@@ -8,24 +8,29 @@ export default function PurchasePage() {
   // let loader = async (retryCnt, max) => await DogLoader(retryCnt, max);
 
   const [dogImg, setDogImg] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [clicked, setClicked] = useState(false);
 
   const setImgSrc = (imgUrl) => {
     setDogImg(imgUrl);
+    // console.log('setting img to ' + imgUrl);
   };
 
   return (
     <div>
       <Loader
         dogImg={dogImg}
-        onImgLoad={setImgSrc}
+        setDogImg={setImgSrc}
         loading={loading}
         setLoading={setLoading}
+        clicked={clicked}
+        setClicked={setClicked}
       />
-      {/* {loading ? ( */}
-      <img src={dogImg} width="150" height="100" />
-      {/*  ) : ( // <h3>Loading</h3>
-      )} */}
+      {loading ? (
+        <img src={dogImg} width="450" height="300" />
+      ) : (
+        <h3>Loading</h3>
+      )}
     </div>
   );
 }
