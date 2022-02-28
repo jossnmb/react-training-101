@@ -26,11 +26,13 @@ export default function PurchasePage() {
         clicked={clicked}
         setClicked={setClicked}
       />
-      {loading ? (
-        <img src={dogImg} width="450" height="300" />
-      ) : (
-        <h3>Loading</h3>
-      )}
+      <div>
+        {loading ? (
+          <img src={dogImg} width="450" height="300" />
+        ) : (
+          <h3>Loading</h3>
+        )}
+      </div>
     </div>
   );
 }
