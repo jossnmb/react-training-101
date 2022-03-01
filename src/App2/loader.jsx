@@ -28,7 +28,7 @@ export default function Loader({
         }
         dogUrl = 'https://random.dog/' + res.data;
         setDogImg(dogUrl);
-        setLoading(true);
+        
       })
       .catch((e) => {
         console.log(e);
@@ -39,6 +39,7 @@ export default function Loader({
   }
 
   let clickHandler = useCallback(() => {
+    setClicked(false);
     DogLoader(0, 8);
     console.log('dog img: ' + dogImg);
   }, [dogImg, loading, clicked]);
