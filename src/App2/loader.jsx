@@ -1,11 +1,9 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import axios from 'axios';
 
 export default function Loader({
   dogImg,
   setDogImg,
-  loading,
-  setLoading,
   clicked,
   setClicked,
 }) {
@@ -40,7 +38,7 @@ export default function Loader({
     setClicked(false);
     DogLoader(0, 8);
     console.log('dog img: ' + dogImg);
-  }, [dogImg, loading, clicked]);
+  }, [dogImg, clicked]);
 
   return (
     <div>
