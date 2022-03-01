@@ -13,7 +13,6 @@ export default function Loader({
     setClicked(true);
     if (retryCnt >= max) throw new Error(`Failed retrying ${retryCnt} times`);
     let dogUrl;
-    setLoading(false);
     await axios
       .get('https://random.dog/woof')
       // if resolved
@@ -28,7 +27,6 @@ export default function Loader({
         }
         dogUrl = 'https://random.dog/' + res.data;
         setDogImg(dogUrl);
-        
       })
       .catch((e) => {
         console.log(e);
@@ -46,7 +44,7 @@ export default function Loader({
 
   return (
     <div>
-      <button onClick={clickHandler}>Purchase Item</button>
+      <button onClick={clickHandler}>Load Dog</button>
     </div>
   );
 }

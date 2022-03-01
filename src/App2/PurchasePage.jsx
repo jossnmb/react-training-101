@@ -29,14 +29,15 @@ export default function PurchasePage() {
         image.src = props.src;
         return () => {
           image.removeEventListener('load', handleLoad);
-          setLoading(true);
         };
       }
     }, [props.src, loading]);
     if (loadedSrc === props.src) {
+      console.log('ready!');
+      setLoading(true);
       return <img {...props} />;
     }
-    return null;
+    return <h3>Loading</h3>;
   };
 
   return (
@@ -52,11 +53,7 @@ export default function PurchasePage() {
       <div>
         {/* only want to show loading once button is clicked         */}
         {clicked ? (
-          { loading } ? (
-            <AsyncImage src={dogImg} />
-          ) : (
-            <h3>Loading</h3>
-          )
+          <AsyncImage src={dogImg} width="450" height="300" />
         ) : (
           <div></div>
         )}
