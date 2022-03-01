@@ -16,30 +16,28 @@ export default function PurchasePage() {
     // console.log('setting img to ' + imgUrl);
   };
 
-  //   const AsyncImage = (props) => {
-  //   	const [loadedSrc, setLoadedSrc] = React.useState(null);
-  //   	React.useEffect(() => {
-  //       	setLoadedSrc(null);
-  //       	if (props.src) {
-  //           	const handleLoad = () => {
-  //             	setLoadedSrc(props.src);
-  //             };
-  //             const image = new Image();
-  //             image.addEventListener('load', handleLoad);
-  //           	image.src = props.src;
-  //             return () => {
-  //               	image.removeEventListener('load', handleLoad);
-  //                 setLoading(true);
-  //             };
-  //         }
-  //     }, [props.src]);
-  //   	if (loadedSrc === props.src) {
-  //         return (
-  //             <img {...props} />
-  //         );
-  //     }
-  //   	return null;
-  // };
+  const AsyncImage = (props) => {
+    const [loadedSrc, setLoadedSrc] = useState(null);
+    useEffect(() => {
+      setLoadedSrc(null);
+      if (props.src) {
+        const handleLoad = () => {
+          setLoadedSrc(props.src);
+        };
+        const image = new Image();
+        image.addEventListener('load', handleLoad);
+        image.src = props.src;
+        return () => {
+          image.removeEventListener('load', handleLoad);
+          setLoading(true);
+        };
+      }
+    }, [props.src, loading]);
+    if (loadedSrc === props.src) {
+      return <img {...props} />;
+    }
+    return null;
+  };
 
   return (
     <div>
@@ -55,7 +53,7 @@ export default function PurchasePage() {
         {/* only want to show loading once button is clicked         */}
         {clicked ? (
           { loading } ? (
-            <img src={dogImg} />
+            <AsyncImage src={dogImg} />
           ) : (
             <h3>Loading</h3>
           )
