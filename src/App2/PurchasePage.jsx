@@ -1,40 +1,26 @@
-import { Component, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { useEffect, useState } from 'react';
 import Loader from './loader';
 
 export default function PurchasePage() {
-  let navigate = useNavigate();
-  // let loader = async (retryCnt, max) => await DogLoader(retryCnt, max);
-
-  const [dogImg, setDogImg] = useState(null);
-  const [loading, setLoading] = useState(false);
   const [clicked, setClicked] = useState(false);
-
-  const setImgSrc = (imgUrl) => {
-    setDogImg(imgUrl);
-    // console.log('setting img to ' + imgUrl);
-  };
+  const [loadedSrc, setLoadedSrc] = useState(null);
+  const [fullyLoaded, setFullyLoaded] = useState(false);
 
   const AsyncImage = (props) => {
-    const [loadedSrc, setLoadedSrc] = useState(null);
     useEffect(() => {
-      setLoadedSrc(null);
-      if (props.src) {
+      if (loadedSrc) {
         const handleLoad = () => {
-          setLoadedSrc(props.src);
+          setFullyLoaded(true);
         };
         const image = new Image();
         image.addEventListener('load', handleLoad);
-        image.src = props.src;
+        image.src = loadedSrc;
         return () => {
           image.removeEventListener('load', handleLoad);
         };
       }
-    }, [props.src, loading]);
-    if (loadedSrc === props.src) {
-      console.log('ready!');
-      setLoading(true);
+    }, [loadedSrc]);
+    if (fullyLoaded) {
       return <img {...props} />;
     }
     return <h3>Loading</h3>;
@@ -43,21 +29,36 @@ export default function PurchasePage() {
   return (
     <div>
       <Loader
-        dogImg={dogImg}
-        setDogImg={setImgSrc}
-        loading={loading}
-        setLoading={setLoading}
         clicked={clicked}
         setClicked={setClicked}
+        loadedSrc={loadedSrc}
+        setLoadedSrc={setLoadedSrc}
+        setFullyLoaded={setFullyLoaded}
       />
       <div>
         {/* only want to show loading once button is clicked         */}
-        {clicked ? (
-          <AsyncImage src={dogImg} width="450" height="300" />
-        ) : (
-          <div></div>
-        )}
+        {clicked ? <AsyncImage src={loadedSrc} width="450" /> : <div></div>}
       </div>
     </div>
   );
 }
+
+// const AsyncImage = (props) => {
+//   useEffect(() => {
+//     if (props.src) {
+//       const handleLoad = () => {
+//         setFullyLoaded(true);
+//       };
+//       const image = new Image();
+//       image.addEventListener('load', handleLoad);
+//       image.src = props.src;
+//       return () => {
+//         image.removeEventListener('load', handleLoad);
+//       };
+//     }
+//   }, [props.src]);
+//   if (fullyLoaded) {
+//     return <img {...props} />;
+//   }
+//   return <h3>Loading</h3>;
+// };
