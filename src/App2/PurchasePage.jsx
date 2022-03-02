@@ -35,30 +35,8 @@ export default function PurchasePage() {
         setLoadedSrc={setLoadedSrc}
         setFullyLoaded={setFullyLoaded}
       />
-      <div>
-        {/* only want to show loading once button is clicked         */}
-        {clicked ? <AsyncImage src={loadedSrc} width="450" /> : <div></div>}
-      </div>
+      {/* only want to show loading once button is clicked */}
+      {clicked ? <AsyncImage src={loadedSrc} width="450" /> : <div></div>}
     </div>
   );
 }
-
-// const AsyncImage = (props) => {
-//   useEffect(() => {
-//     if (props.src) {
-//       const handleLoad = () => {
-//         setFullyLoaded(true);
-//       };
-//       const image = new Image();
-//       image.addEventListener('load', handleLoad);
-//       image.src = props.src;
-//       return () => {
-//         image.removeEventListener('load', handleLoad);
-//       };
-//     }
-//   }, [props.src]);
-//   if (fullyLoaded) {
-//     return <img {...props} />;
-//   }
-//   return <h3>Loading</h3>;
-// };
