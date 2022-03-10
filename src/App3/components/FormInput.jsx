@@ -1,12 +1,12 @@
 import './formInput.css';
 
 const FormInput = (props) => {
-  const { placeholder } = props;
+  const { placeholder, refer } = props;
 
   return (
     <div className="formInput">
       {/* <label>Username</label> */}
-      <input placeholder={placeholder} />
+      <input ref={refer} placeholder={placeholder} />
     </div>
   );
 };
