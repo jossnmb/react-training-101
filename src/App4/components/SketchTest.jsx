@@ -1,23 +1,26 @@
 import { ReactP5Wrapper } from 'react-p5-wrapper';
+import items from './items.json';
+import './sketch.css';
 
 function sketch(p5) {
   let clicked = false;
 
   p5.setup = () => {
-    p5.createCanvas(600, 400, p5.WEBGL);
+    p5.createCanvas(400, 400);
+    p5.textSize(20);
+    p5.textAlign('center');
   };
 
   p5.draw = (props) => {
     p5.background(250);
-    p5.normalMaterial();
-    p5.push();
-    p5.rotateZ(p5.frameCount * 0.01);
-    p5.rotateX(p5.frameCount * 0.01);
-    p5.rotateY(p5.frameCount * 0.01);
-    p5.plane(100);
-    p5.pop();
+    let p = 0;
+    for (let i = 1; i<5; i++) {
+    p5.text(Object.keys(items[0])[i] + ': ' + Object.values(items[0])[i], 
+      200, 200+p);
+    p += 25;
+  }
     if (clicked) {
-      p5.saveCanvas('myCanvas', 'png');
+      p5.saveCanvas('myNFT', 'png');
       clicked = false;
     }
   };
@@ -26,16 +29,19 @@ function sketch(p5) {
     if (props.clicked) {
       clicked = true;
       props.setClicked(false);
+      console.log(Object.values(items[0])[3]);
     }
   };
 }
 
 export default function SketchTest(props) {
   return (
-    <ReactP5Wrapper
-      sketch={sketch}
-      clicked={props.clicked}
-      setClicked={props.setClicked}
-    />
+    <div className="sketch">
+      <ReactP5Wrapper 
+        sketch={sketch}
+        clicked={props.clicked}
+        setClicked={props.setClicked}
+      />  
+    </div>
   );
 }

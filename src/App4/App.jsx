@@ -12,7 +12,7 @@ export default function App() {
           setClicked(true);
         }}
       >
-        Save Canvas
+        Mint NFT
       </button>
     </div>
   );

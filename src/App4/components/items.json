@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "vendor": "SUPREME",
+    "itemName": "Brick Logo Hoodie",
+    "tags": "Size: Small, Color: White",
+    "purchaseDate": "031422",
+    "claimed": false
+  },
+  {
+    "id": 2,
+    "vendor": "NELK",
+    "itemName": "Full Send USA Flag",
+    "tags": "Size: 3x5 ft",
+    "purchaseDate": "020122",
+    "claimed": false
+  },
+  {
+    "id": 3,
+    "vendor": "BAPE",
+    "itemName": "Boxers",
+    "tags": "Size: Mens Medium, Color: Blue Camo",
+    "purchaseDate": "031422",
+    "claimed": true
+  }
+]
