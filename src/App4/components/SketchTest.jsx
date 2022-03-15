@@ -9,10 +9,14 @@ function sketch(p5) {
     p5.createCanvas(400, 400);
     p5.textSize(20);
     p5.textAlign('center');
+    p5.rectMode('center');
+    p5.background(150);
   };
 
   p5.draw = (props) => {
-    p5.background(250);
+    p5.fill(0);
+    p5.rect(p5.width/2,p5.height/2,p5.width-20, p5.height-100);
+    p5.fill(250);
     let p = 0;
     for (let i = 1; i<5; i++) {
     p5.text(Object.keys(items[0])[i] + ': ' + Object.values(items[0])[i], 
