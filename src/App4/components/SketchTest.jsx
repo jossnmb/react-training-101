@@ -17,7 +17,7 @@ function sketch(p5) {
     p5.plane(100);
     p5.pop();
     if (clicked) {
-      p5.saveCanvas();
+      p5.saveCanvas('myCanvas', 'png');
       clicked = false;
     }
   };
