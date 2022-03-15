@@ -29,9 +29,7 @@ export default function PurchasePage() {
   return (
     <div>
       <Loader
-        clicked={clicked}
         setClicked={setClicked}
-        loadedSrc={loadedSrc}
         setLoadedSrc={setLoadedSrc}
         setFullyLoaded={setFullyLoaded}
       />

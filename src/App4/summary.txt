@@ -1,1 +1,12 @@
 create button in App.jsx that calls saveCanvas() on click
+
+saveCanvas(selectedCanvas, [filename], [extension])
+saveCanvas([filename], [extension])
+
+saveCanvas(c, 'myCanvas', 'jpg');
+saveCanvas(c, 'myCanvas.jpg');
+saveCanvas(c, 'myCanvas');
+saveCanvas(c);
+saveCanvas('myCanvas', 'png');
+saveCanvas('myCanvas');
+saveCanvas();
