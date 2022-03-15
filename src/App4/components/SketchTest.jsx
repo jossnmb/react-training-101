@@ -8,7 +8,6 @@ function sketch(p5) {
   };
 
   p5.draw = (props) => {
-    p5.tester();
     p5.background(250);
     p5.normalMaterial();
     p5.push();
@@ -20,18 +19,14 @@ function sketch(p5) {
     if (clicked) {
       p5.saveCanvas();
       clicked = false;
-      props.setClicked(false);
     }
   };
 
   p5.updateWithProps = (props) => {
     if (props.clicked) {
       clicked = true;
+      props.setClicked(false);
     }
-  };
-
-  p5.tester = () => {
-    // p5.print('cack');
   };
 }
 
