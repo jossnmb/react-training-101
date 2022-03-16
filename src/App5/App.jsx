@@ -45,7 +45,7 @@ export default function App() {
 
   return (
     <div className="flex w-screen h-screen justify-center items-center">
-      <div className="flex-col space-y-2 justify-center items-center">
+      <div className="flex-col space-y-2 justify-center items-center text-center">
         <button
           id="loginButton"
           className={`rounded-md p-2 font-bold ${buttonClasses}`}
