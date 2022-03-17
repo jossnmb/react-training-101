@@ -11,7 +11,7 @@ export default function App() {
       setButtonClasses('bg-purple-500 text-white');
       setButtonTxt('Log in');
     } else if (typeof window.ethereum) {
-      setButtonClasses('bg-purple-700 text-white cursor-not-allowed');
+      setButtonClasses('bg-purple-700 text-white outline outline-offset-1 outline-2 outline-orange-500 cursor-not-allowed');
       setButtonTxt('Logged in');
     } else {
       setButtonClasses('bg-gray-500 text-gray-100 cursor-not-allowed');

@@ -6,7 +6,7 @@ export default function App() {
   return (
     <div>
       <SketchTest clicked={clicked} setClicked={setClicked} />
-      <button
+      <button className="rounded-md p-2 font-bold bg-lime-500 text-white m-2"
         onClick={() => {
           setClicked(true);
         }}

@@ -30,7 +30,7 @@ export default function Loader({ setClicked, setLoadedSrc, setFullyLoaded }) {
 
   return (
     <div>
-      <button
+      <button className="rounded-md p-2 font-bold bg-blue-500 text-white m-2"
         onClick={() => {
           DogLoader(0, 8);
         }}
