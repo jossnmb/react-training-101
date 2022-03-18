@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import './main.css';
-import App from './App5/App';
+import App from './App6/App';
 
 let rootElement = document.getElementById('root');
 ReactDOM.render(<App />, rootElement);
