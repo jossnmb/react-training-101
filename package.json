@@ -7,12 +7,15 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
     "axios": "^0.26.0",
     "history": "^5.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-p5-wrapper": "^3.2.1",
-    "react-router-dom": "6.0.0-beta.8"
+    "react-router-dom": "6.0.0-beta.8",
+    "recharts": "^2.1.9"
   },
   "devDependencies": {
     "@rollup/plugin-replace": "^2.2.1",
