@@ -1,8 +1,5 @@
+import './app.css';
 
 export default function App() {
-  return (
-    <div>
-      <Topbar />
-    </div>
-  );
+  return <div>yo yo</div>;
 }
