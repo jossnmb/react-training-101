@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="home">
       <Sidebar />
-      <div className="homeContainer"></div>
+      <div className="homeContainer">container</div>
     </div>
   );
 }

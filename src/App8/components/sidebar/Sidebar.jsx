@@ -6,6 +6,7 @@ export default function Sidebar() {
       <div className="top">
         <span className="logo">jossadmin</span>
       </div>
+      <hr/>
       <div className="center">
         <ul>
           <li>
