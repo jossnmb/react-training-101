@@ -1,9 +1,11 @@
 import './home.scss';
+import Sidebar from '../../components/sidebar/Sidebar';
 
 export default function Home() {
   return (
     <div className="home">
-      <h1 className="title">Joss</h1>
+      <Sidebar />
+      <div className="homeContainer"></div>
     </div>
   );
 }

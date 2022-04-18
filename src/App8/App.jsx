@@ -19,6 +19,11 @@ export default function App() {
               <Route path=":userID" element={<Single />} />
               <Route path="new" element={<New />} />
             </Route>
+            <Route path="products">
+              <Route index element={<List />} />
+              <Route path=":productID" element={<Single />} />
+              <Route path="new" element={<New />} />
+            </Route>
           </Route>
           <Route
             path="*"
