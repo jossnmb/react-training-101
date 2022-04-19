@@ -1,10 +1,16 @@
 import './sidebar.scss';
 import {
   DashboardIcon,
-  AccountCircleIcon,
+  PeopleIcon,
   InventoryIcon,
   BallotIcon,
   LocalShippingIcon,
+  DataUsageIcon,
+  NotificationsIcon,
+  NotesIcon,
+  SettingsIcon,
+  AccountCircleIcon,
+  LogoutIcon,
 } from '@mui/icons-material/Dashboard';
 
 export default function Sidebar() {
@@ -21,7 +27,7 @@ export default function Sidebar() {
             <span>Dashboard</span>
           </li>
           <li>
-            <AccountCircleIcon />
+            <PeopleIcon />
             <span>Users</span>
           </li>
           <li>
@@ -37,21 +43,27 @@ export default function Sidebar() {
             <span>Delivery</span>
           </li>
           <li>
+            <DataUsageIcon />
             <span>Stats</span>
           </li>
           <li>
+            <NotificationsIcon />
             <span>Notifications</span>
           </li>
           <li>
+            <NotesIcon />
             <span>Logs</span>
           </li>
           <li>
+            <SettingsIcon />
             <span>Settings</span>
           </li>
           <li>
+            <AccountCircleIcon />
             <span>Profile</span>
           </li>
           <li>
+            <LogoutIcon />
             <span>Logout</span>
           </li>
         </ul>
