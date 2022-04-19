@@ -1,17 +1,15 @@
 import './sidebar.scss';
-import {
-  DashboardIcon,
-  PeopleIcon,
-  InventoryIcon,
-  BallotIcon,
-  LocalShippingIcon,
-  DataUsageIcon,
-  NotificationsIcon,
-  NotesIcon,
-  SettingsIcon,
-  AccountCircleIcon,
-  LogoutIcon,
-} from '@mui/icons-material/Dashboard';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import PeopleIcon from '@mui/icons-material/People';
+import InventoryIcon from '@mui/icons-material/Inventory';
+import BallotIcon from '@mui/icons-material/Ballot';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import DataUsageIcon from '@mui/icons-material/DataUsage';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import NotesIcon from '@mui/icons-material/Notes';
+import SettingsIcon from '@mui/icons-material/Settings';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function Sidebar() {
   return (

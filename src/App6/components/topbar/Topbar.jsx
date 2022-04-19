@@ -1,5 +1,5 @@
 import './topbar.css';
-import { Language, NotificationsNone, Settings } from '@material-ui/icons';
+import { Language, NotificationsNone, Settings } from '@mui/icons-material';
 
 export default function Topbar() {
   return (
